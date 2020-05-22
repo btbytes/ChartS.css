@@ -82,14 +82,6 @@ function Doc(body, metadata, variables)
   local function add(s)
     table.insert(buffer, s)
   end
-  add('<!DOCTYPE html>')
-  add('<html>')
-  add('<head>')
-  add('<link rel="stylesheet" href="ChartSS.css" />')
-  -- a default good style
-  add('<link rel="stylesheet" href="https://unpkg.com/mvp.css" />')
-  add('</head>')
-  add('<body style="margin:3%">')
   add(body)
   if #notes > 0 then
     add('<ol class="footnotes">')
@@ -98,10 +90,9 @@ function Doc(body, metadata, variables)
     end
     add('</ol>')
   end
-  add('</body>')
-  add('</html>')
   return table.concat(buffer,'\n') .. '\n'
 end
+
 
 -- The functions that follow render corresponding pandoc elements.
 -- s is always a string, attr is always a table of attributes, and

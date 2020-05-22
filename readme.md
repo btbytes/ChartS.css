@@ -39,10 +39,11 @@ __Running chartss.lua__
 The following command creates a stand alone html file out of a markdown file. Markdown lists conforming to the syntax discussed below will automatically be converted into charts.
 
 ```
-$ pandoc -t chartss.lua infile.md > outfile.html
+$ pandoc -D html5 > template.html
+$ pandoc -t chartss.lua --css=ChartSS.css --css=https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css --template=template.html --standalone  readme.md -o readme.html
 ```
 
-## Gallery and Markdown Syntax 
+## Gallery and Markdown Syntax
 
 ### Bar Charts:
 
@@ -199,7 +200,7 @@ Output (see html version)
 
 ## HTML templates
 
-Note: this html was generated using the defaults of `chartss.lua`. This means that 1. More or fewer ticks can be added on the axes and 2. There has been som autoscaling applied to the chart areas. If you are creating manual charts, you will have to scale between the label values and the percentage values that the charting functions use. 
+Note: this html was generated using the defaults of `chartss.lua`. This means that 1. More or fewer ticks can be added on the axes and 2. There has been som autoscaling applied to the chart areas. If you are creating manual charts, you will have to scale between the label values and the percentage values that the charting functions use.
 
 ### Bar Chart
 
